@@ -1,0 +1,52 @@
+{% extends 'layaouts/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task detail</title>
+  </head>
+  {% block content %}
+  <body>
+    <main class="container">
+      <div class="row">
+        <div class="col-sm-4 offset-md-4 mt-5">
+          <div class="card card-body">
+            <form action="" method="POST">
+              <h1 class="text-center">Task detail</h1>
+              <h2>{{task.title}}</h2>
+              {{ form }}
+              <div class="d-flex justify-content-around mt-3">
+                <button type="submit" class="btn btn-primary">Aceptar</button>
+                <button type="reset" class="btn btn-primary btn-3">Cancelar</button>
+              </div>
+              {% csrf_token %}
+            </form>
+            <br />
+            <div class="m-auto">
+              <form
+                action="{% url 'complete-task' task.id %}"
+                method="POST"
+                class="form-check-inline"
+              >
+                <button type="submit" class="btn btn-success">
+                  Marcar como completada
+                </button>
+                {% csrf_token %}
+              </form>
+              <form
+                action="{% url 'delete-task' task.id %}"
+                method="POST"
+                class="form-check-inline"
+              >
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+                {% csrf_token %}
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  {% endblock %}
+</html>

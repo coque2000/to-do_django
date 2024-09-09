@@ -1,0 +1,42 @@
+{% extends 'layaouts/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  {% block content %}
+  <body>
+    <main class="container py-5">
+      <section class="card card-body">
+        <h1 class="display-1 text-center">
+          Bienvenido a la página: {{ user.username }}
+        </h1>
+        {% if hour >= 12 and hour <= 18 %}
+        <h2>Buenas Tardes</h2>
+        {% elif hour >= 18 and hour <= 23 %}
+        <h2>Buenas Noches</h2>
+        {% else %}
+        <h2>Buenos Dias</h2>
+        {% endif %}
+        <p>Aqui empieza el recorrido :D</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur
+          sint quidem esse obcaecati ullam vel modi quisquam dolorem magnam,
+          totam corporis? Repellendus soluta nostrum voluptate exercitationem
+          esse sapiente, corrupti molestias.
+        </p>
+        <div class="text-center">
+          <button class="btn btn-secondary">
+            <a href="/signin/" class="link-light link-underline-opacity-0">Sign in</a>
+          </button>
+          <button class="btn btn-dark">
+            <a href="/signup/" class="link-light link-underline-opacity-0">Sign up</a>
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
+  {% endblock %}
+</html>

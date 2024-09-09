@@ -1,0 +1,46 @@
+{% extends 'layaouts/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+  </head>
+  {% block content %}
+  <body>
+    <main class="container">
+      <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+          <form action="/signup/" method="POST" class="card card-body">
+            <h1 class="text-center">Entra en la aplicacion</h1>
+            <p>{{ error }}</p>
+
+            {# {form.as_p} #}
+            <div class="mb-3">
+              <label for="id_username">Username:</label>
+              <input type="text" name="username" id="id_username" class="form-control" placeholder="Write your username">
+            </div>
+
+            <div class="mb-3">
+              <label for="password1">Password</label>
+              <input type="password" name="password1" id="id_password1" class="form-control" placeholder="Write your password">
+            </div>
+
+            <div class="mb-3">
+              <label for="password2">Confirm your password</label>
+              <input type="password" name="password2" id="id_password2" class="form-control" placeholder="Confirm your password">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">
+              Sign up
+            </button>
+            {% csrf_token %}
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+  {% endblock %}
+</html>

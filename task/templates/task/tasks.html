@@ -1,0 +1,50 @@
+{% extends 'layaouts/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks</title>
+  </head>
+  {% block content %}
+  <body>
+    <main class="container">
+      <div class="row">
+      <h1>Tasks sin finalizar</h1>
+
+      {% if not tasks %}
+      <h2>Primero agrega unas cuantas <a href="/task/create">Tasks</a></h2>
+      {% endif %}
+
+      {% for task in tasks %}
+      <div class="col-sm-4 p-2">
+        <a href="{% url 'detail-task' task.id %}" class="link-underline link-underline-opacity-0">
+        {% if task.important %}
+          <h2 class="fw-bold text-success">{{task.title}}</h2>
+        {% else %}
+          <h2 class="fw-bold text-primary">{{task.title}}</h2>
+        {% endif %}
+        </a>
+        <p>{{ task.description }}</p>
+        <p>📅{{ task.created }}</p>
+        <p>Estado: 
+        {% if task.datecompleted %}
+        ✅ Completada: {{ task.datecompleted|date:'M j Y - h:m:s' }}</p>
+        {% else %}
+        ⏱️ Pendiente</p>
+        {% endif %}
+        <p>Tipo: 
+        {% if task.important %}
+        💡Importante</p>
+        {% else %}
+        📜 Normal</p>
+        {% endif %}
+        <p> {# {task.user.username} #}</p>
+      </div>
+      {% endfor %}
+    </div>
+    </main>
+  </body>
+  {% endblock %}
+</html>

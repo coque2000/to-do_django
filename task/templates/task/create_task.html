@@ -1,0 +1,28 @@
+{% extends './../layaouts/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create task</title>
+  </head>
+  {% block content %}
+  <body>
+    <main class="container">
+      <div class="row">
+        <div class="col-sm-4 offset-md-4 mt-5">
+          <form action="/task/create/" method="POST" class="card card-body">
+            <h1>Crear una task</h1>
+            {{ error }}
+            {{ form }}
+            <button type="submit" class="btn btn-primary mt-3">Aceptar</button>
+            <button type="reset" class="btn btn-primary mt-3">Cancelar</button>
+            {% csrf_token %}
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+  {% endblock %}
+</html>

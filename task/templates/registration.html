@@ -1,0 +1,25 @@
+{% extends 'layaouts/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+  </head>
+  {% block content %}
+  <body>
+    <h1>Registro</h1>
+    <p>Este es el registro</p>
+
+    {% if equals %}
+    <h3>Felicidades, te has registrado con exito</h3>
+    <h3>Las contrasenias son iguales</h3>
+    {% else %}
+    <h3>Las contrasenias NO son iguales</h3>
+    {% endif %}
+    {{ error }}
+
+  </body>
+  {% endblock %}
+</html>

@@ -1,0 +1,50 @@
+{% extends 'layaouts/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+  </head>
+  {% block content %}
+  <body>
+    <main class="container">
+      <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+          <form action="/signin/" method="POST" class="card card-body">
+            <h1 class="text-center">Sign in</h1>
+            {{ error }} 
+            {#{ form.as_p }#}
+
+            <div class="mb-3">
+              <label for="id_username">Username:</label>
+              <input
+                type="text"
+                name="username"
+                id="id_username"
+                class="form-control"
+                placeholder="Write your username"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="id_password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="id_password"
+                class="form-control"
+                placeholder="Write your password"
+              />
+            </div>
+
+            <button class="btn btn-primary">Ingresar</button>
+            <button class="btn btn-primary mt-3">Cancelar</button>
+            {% csrf_token %}
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+  {% endblock %}
+</html>
