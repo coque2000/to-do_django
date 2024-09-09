@@ -12,6 +12,7 @@ python manage.py collectstatic --no-input
 
 # Apply any outstanding database migrations
 echo "Applying database makemigrations..."
+python manage.py migrate auth
 python manage.py makemigrations
 echo "Applying database migrations..."
 python manage.py migrate
