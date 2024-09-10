@@ -23,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-5@zd3c0xp_i!qng^qtt40t0a35x&@o8s4j&08k2vr(_(6@_!=3'
-SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-5@zd3c0xp_i!qng^qtt40t0a35x&@o8s4j&08k2vr(_(6@_!=3')
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY', default='django-insecure-5@zd3c0xp_i!qng^qtt40t0a35x&@o8s4j&08k2vr(_(6@_!=3')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
@@ -33,7 +34,6 @@ ALLOWED_HOSTS = []
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-
 
 
 # Application definition
@@ -57,7 +57,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-
 ]
 
 ROOT_URLCONF = 'django_crud.urls'
@@ -91,8 +90,7 @@ DATABASES = {
     # }
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        # default='postgresql://postgres:postgres@localhost/postgres',
-        default='postgresql://django_crud_ud28_user:KEghIsREb3mjFYPXXWVYTsVMXQVBJwOF@dpg-crf7ecij1k6c73die2ug-a:5432/django_crud',
+        default='postgresql://postgres:postgres@localhost:5432/mysite',
         conn_max_age=600
     )
 }
