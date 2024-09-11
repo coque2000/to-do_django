@@ -90,7 +90,8 @@ DATABASES = {
     # }
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/django_crud',
+        # default='postgresql://postgres:postgres@localhost:5432/django_crud',
+        default='postgresql://to_do_db_dvpz_user:bRBIx9x0UWYsc6PfTF9EpyVBGJmXmJRy@dpg-crftkg3qf0us73dc94f0-a/to_do_db_dvpz',
         conn_max_age=600
     )
 }
